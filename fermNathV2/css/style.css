@@ -1,0 +1,31 @@
+/* MAIN CSS */
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+/* Page login CSS */
+.containerLoginForm{
+    margin:  50px auto;
+    height: 60vh;
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.formLogin{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rebeccapurple;
+    width: 90%;
+    height: 60%;
+}
+.boxInput{
+    width: 40%;
+}
+.inputLogin{
+    width: 100%;
+}
