@@ -1,7 +1,7 @@
 <form action="" method="post">
     <div class="mb-3">
         <label for="titled" class="form-label">Intitulé</label>
-        <input type="text" class="form-control" id="titled" name="titled">
+        <input type="text" class="form-control" id="titled" name="titled" value="<?= !empty($resultDeliveryUpd) ? $resultDeliveryUpd['name'] : ''; ?>">
     </div>
     <div class="mb-3">
         <label for="date" class="form-label">Date</label>

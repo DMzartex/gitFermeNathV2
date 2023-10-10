@@ -1,13 +1,12 @@
 <?php
 $uri = $_SERVER['REQUEST_URI'];
-// URL de la homePage
-if($uri == "/fermNathV2/"){
+
+if($uri == "/fermNathV2/" && $_SESSION['isConnected']){
     require_once 'templates/homePage.php';
-}
-// URL de connexion
-if($uri == "/fermNathV2/index.php?/login" && empty($_SESSION['isConnected'])){
-    // Affichage de la page Login
-    require_once ("templates/login/loginTemplate.php");
+}elseif($uri == "/fermNathV2/" && empty($_SESSION['isConnected'])){
+    header('Location: index.php?/login');
+}elseif($uri == "/fermNathV2/index.php?/login" && empty($_SESSION['isConnected'])){
+    require_once 'templates/login/loginTemplate.php';
     if(!empty($_POST['email'])){
         // Verification du format de l'adresse email
         if(filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
@@ -24,7 +23,10 @@ if($uri == "/fermNathV2/index.php?/login" && empty($_SESSION['isConnected'])){
             }
         }
     }
-// Si l'utilisateur est déja connecté redirection automatique sur la page des commandes
-}elseif ($uri == "/fermNathV2/index.php?/login" && $_SESSION['isConnected']){
+}elseif($uri == "/fermNathV2/index.php?/login" && $_SESSION['isConnected']){
+    echo 'Dorian';
     header('Location:index.php?/orders');
 }
+
+
+
